@@ -1,7 +1,8 @@
 <template>
   <div class="card">
     <router-link :to="{ name: 'Watch', query:{id}}">
-      <img class="image" v-bind:src="coverImage" @mouseover="showHoverImage">
+      <img class="image" v-bind:src="coverImage" @mouseover="showHoverPreview" v-show="!preview">
+      <img class="image" v-bind:src="hoverImage" @mouseleave="showHoverPreview" v-show="preview">
     </router-link>
     <div class="info-container">
       <router-link :to="{ name: 'Watch', query:{id}}">
@@ -26,10 +27,15 @@
 <script>
 export default {
   name: "Card",
-  props: ["id", "coverImage", "ownerImage", "title", "ownerName", "viewCount", "publishDateInMonth", "description"],
+  props: ["id", "hoverImage", "coverImage", "ownerImage", "title", "ownerName", "viewCount", "publishDateInMonth", "description"],
   methods: {
-    showHoverImage() {
-      console.log("Here")
+    showHoverPreview() {
+      this.preview = !this.preview;
+    }
+  },
+  data() {
+    return {
+      preview: false
     }
   }
 }
