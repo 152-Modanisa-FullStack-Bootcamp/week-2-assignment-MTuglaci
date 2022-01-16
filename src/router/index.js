@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Favorite from '../views/Favorite.vue'
+import Watch from "@/components/Watch";
 
 Vue.use(VueRouter)
 
@@ -18,6 +19,14 @@ const routes = [
     // this generates a separate chunk (favorite.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: Favorite
+  },
+  {
+    path: '/watch',
+    name: 'Watch',
+    // route level code-splitting
+    // this generates a separate chunk (favorite.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: Watch
   }
 ]
 

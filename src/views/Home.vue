@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Card v-for="video in videos" :key="video.id" :coverImage="video.coverImage" :hoverImage="video.hoverImage"
+    <Card v-for="video in videos" :key="video.id" :id="video.id" :coverImage="video.coverImage" :hoverImage="video.hoverImage"
           :ownerImage="video.ownerImage" :title="video.title" :description="video.description"
           :ownerName="video.ownerName" :publishDateInMonth="video.publishDateInMonth"
           :viewCount="video.viewCount"/>

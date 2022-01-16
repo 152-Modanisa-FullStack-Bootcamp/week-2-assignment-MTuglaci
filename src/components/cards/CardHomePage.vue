@@ -1,11 +1,15 @@
 <template>
   <div class="card">
-    <img class="image" v-bind:src="coverImage" @mouseover="showHoverImage">
+    <router-link :to="{ name: 'Watch', query:{id}}">
+      <img class="image" v-bind:src="coverImage" @mouseover="showHoverImage">
+    </router-link>
     <div class="bottom-container-main">
       <img class="ownerImage" v-bind:src="ownerImage">
       <div class="bottom-container-info-1">
         <div class="ellipsis-text">
-          <h3 v-text="title"/>
+          <router-link :to="{ name: 'Watch', query:{id}}">
+            <h3 v-text="title"/>
+          </router-link>
           <h4 v-text="ownerName"/>
         </div>
         <div class="bottom-container-info-2">
@@ -21,7 +25,7 @@
 <script>
 export default {
   name: "Card",
-  props: ["coverImage", "ownerImage", "title", "ownerName", "viewCount", "publishDateInMonth"],
+  props: ["id", "coverImage", "ownerImage", "title", "ownerName", "viewCount", "publishDateInMonth"],
   methods: {
     showHoverImage() {
       console.log("Here")
@@ -88,12 +92,12 @@ h3, h4 {
   text-overflow: ellipsis;
 }
 
-h3{
+h3 {
   color: white;
   margin: 0 0 0.5rem;
 }
 
-h4{
+h4 {
   color: lightgray;
   margin: 0;
 }

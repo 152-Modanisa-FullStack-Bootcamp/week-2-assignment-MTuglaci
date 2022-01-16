@@ -1,6 +1,6 @@
 <template>
   <div class="favorite">
-    <Card v-for="video in videos" :key="video.id" :coverImage="video.coverImage" :hoverImage="video.hoverImage"
+    <Card v-for="video in videos" :key="video.id" :id="video.id" :coverImage="video.coverImage" :hoverImage="video.hoverImage"
           :ownerImage="video.ownerImage" :title="video.title" :description="video.description"
           :ownerName="video.ownerName" :publishDateInMonth="video.publishDateInMonth"
           :viewCount="video.viewCount"/>
@@ -18,7 +18,7 @@ export default {
   data() { return {videos: []} },
   async mounted() {
     const response = await axios.get('https://my-json-server.typicode.com/modanisa/bootcamp-video-db/videos');
-    this.videos = response.data;
+    this.videos = response.data.filter((video)=> video.favorite);
     console.log(this.videos);
   }
 }
