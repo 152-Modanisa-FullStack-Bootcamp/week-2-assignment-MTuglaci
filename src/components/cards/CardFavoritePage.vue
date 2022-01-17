@@ -1,12 +1,13 @@
 <template>
   <div class="card">
     <router-link :to="{ name: 'Watch', query:{id}}">
-      <img class="image" v-bind:src="coverImage" @mouseover="showHoverPreview" v-show="!preview">
-      <img class="image" v-bind:src="hoverImage" @mouseleave="showHoverPreview" v-show="preview">
+      <img class="image" v-bind:src="coverImage" @mouseover="showHoverPreview" v-show="!preview"
+           alt="Video Cover Image">
+      <img class="image" v-bind:src="hoverImage" @mouseleave="showHoverPreview" v-show="preview" alt="Video Preview">
     </router-link>
     <div class="info-container">
       <router-link :to="{ name: 'Watch', query:{id}}">
-        <h3 v-text="title"/>
+        <h3 v-bind:title="title" v-text="title"/>
       </router-link>
       <div class="row-horizontal">
         <h4 v-text="viewCount + ' views'"/>
@@ -14,7 +15,7 @@
         <h4 v-text="publishDateInMonth"/>
       </div>
       <div class="row-horizontal">
-        <img class="ownerImage" v-bind:src="ownerImage">
+        <img class="ownerImage" v-bind:src="ownerImage" alt="Video Owner's image">
         <h4 v-text="ownerName"/>
       </div>
       <div class="row-horizontal">
@@ -83,7 +84,7 @@ h3, h4 {
 
 h3 {
   color: white;
-  margin: 0 0rem;
+  margin: 0;
   /*background-color: black;*/
 }
 
